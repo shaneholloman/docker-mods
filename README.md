@@ -1,4 +1,4 @@
-# Intro
+# Intro to Docker Mods
 
 The purpose of the repository is to provide examples and guidance in creating and storing a user consumable modification layer for the Library of Linuxserver.io Containers.
 At it's core a Docker Mod is a tarball of files stored on Dockerhub and/or GitHub Container Registry that is downloaded and extracted on container boot before any init logic is run.
@@ -44,7 +44,7 @@ docker create \
   linuxserver/nzbget
 ```
 
-This will spinup an nzbget container and apply the custom logic found in the following repository:
+This will spin up an nzbget container and apply the custom logic found in the following repository:
 
 <https://github.com/Taisun-Docker/Linuxserver-Mod-Demo>
 
@@ -55,7 +55,7 @@ This basic demo installs Pip and a couple dependencies for plugins some users le
 We will always recommend to our users consuming Mods that they leverage ones from active community members or projects so transparency is key here. We understand that image layers can be pushed on the back end behind these pipelines, but every little bit helps.
 In this repository we will be going over two basic methods of making a Mod along with an example of the GitHub Actions build logic to get this into a Dockerhub and/or GitHub Container Registry endpoint. Though we are not officially endorsing GitHub Actions here it is built in to GitHub repositories and forks making it very easy to get started. If you prefer others feel free to use them as long as build jobs are transparent.
 
-One of the core ideas to remember when creating a Mod is that it can only contain a single image layer, the examples below will show you how to add files standardly and how to run complex logic to assemble the files in a build layer to copy them over into this single layer.
+One of the core ideas to remember when creating a Mod is that it can only contain a single image layer, the examples below will show with standard, how to add files and how to run complex logic to assemble those files in a build layer to copy them over into this single layer.
 
 ### Docker Mod Simple - just add scripts
 
@@ -74,7 +74,7 @@ The most common paths to leverage for Linuxserver images will be:
 
 * root/etc/cont-init.d/<98-script-name> - Contains init logic scripts that run before the services in the container start these should exit 0 and are ordered by filename
 * root/etc/services.d/`yourservice`/run - Contains scripts that run in the foreground for persistent services IE NGINX
-* root/defaults - Contains base config files that are copied/modified on first spinup
+* root/defaults - Contains base config files that are copied/modified on first spin up
 
 The example files in this repo contain a script to install sshutil and a service file to run the installed utility.
 
