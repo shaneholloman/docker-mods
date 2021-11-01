@@ -3,7 +3,7 @@ name: Build Image
 on: [push, pull_request, workflow_dispatch]
 
 env:
-  ENDPOINT: "shaneholloman/mod"
+  ENDPOINT: "shaneholloman/docker-mods"
   BRANCH: "master"
 
 jobs:
